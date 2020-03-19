@@ -6,7 +6,7 @@ class BST {
   }
 }
 
-// April solution
+// one thought
 function isBST(root, min = -Infinity, max = Infinity) {
   if (root.value <= min || root.value >= max) return false;
   else
