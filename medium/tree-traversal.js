@@ -1,31 +1,3 @@
-class Node {
-  constructor(name) {
-    this.name = name;
-    this.children = [];
-  }
-
-  addChild(name) {
-    this.children.push(new Node(name));
-    return this;
-  }
-
-  breadthFirstSearch(array = []) {
-    // Write your code here.
-    let currNode;
-    let queue = [this];
-    while (queue.length) {
-            currNode = queue.shift()
-            array.push(currNode.name)
-            queue.push(...currNode.children)
-
-    }
-    return array
-  }
-}
-
-////
-class: center middle
-
 Tree Traversal
 Interviewer Prompt
 Today you will write a series of iterator functions for trees.
@@ -71,8 +43,6 @@ Algorithm	Order	Explanation
 breadthFirst	A B C D E F G H I J K L M	Each "level" of the tree is printed in order
 depthFirstPreOrder	A B E K L C F G H M D I J	Children nodes are visited before sibling nodes
 depthFirstPostOrder	K L E B F G M H C I J D A	A node is not traversed until all its children are reached
-class: center middle
-
 Interviewer Guide
 RE
 This differs from the traversal we worked on in junior phase in that each node may have any number of children
