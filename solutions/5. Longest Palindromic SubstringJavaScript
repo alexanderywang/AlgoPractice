@@ -1,0 +1,111 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+
+//https://www.youtube.com/watch?v=l-XCWjps-UQ for Manachers
+
+var longestPalindrome = function(s) {
+    // ababababababa
+    // 135791197531  n^2
+    // looking at each letter as a center letter plus at max the num of letters. 
+    // before it at each step, center+ chars before *2
+   let paddedS = '#' + s.split('').join('#') + '#'
+    console.log(paddedS);
+    bestCenter = -1;
+    maxLen = 0;
+    for(let center = 0; center < paddedS.length; center++){
+        let radius = 0;
+        while(center + radius + 1< paddedS.length && center - radius - 1>= 0 &&
+        paddedS.charAt(center + radius +   1) == paddedS.charAt(center - radius -1)) radius ++;
+        console.log(radius);
+        if(radius > maxLen){
+            bestCenter = center;
+            maxLen = radius;
+        }
+    }
+    return s.slice((bestCenter-maxLen)/2, (bestCenter+maxLen)/2);
+}
+//     // 0 1 [0 3 0 5 0 7 0 [7] # 5?         ]
+//     // mirrorIdx = 2 * center - i
+//     // radius can start from Math.min(lens(mirror), center + radius - i)
+//     paddedS = “#” + s.split(“”).join(“#”) + “#”;
+//     lens = [];
+//     bestCenter = -1;
+//     maxLen = 0;
+//     for(let center = 0; center < paddedS.length; center++){
+//         let radius = 0;
+//         if(center < bestCenter + radius + 1){  //?
+//             radius = Math.min(lens(mirror), center + radius - i);
+//         }
+//         while(center + radius + 1< paddedS.length && center - radius - 1>= 0 &&
+//         paddedS.charAt(center + radius +   1) == paddedS.charAt(center - radius -1)) radius ++;
+//         lens.push(radius);
+//         if(radius > maxLen){
+//             bestCenter = center;
+//             maxLen = radius;
+//         }
+//     }
+//     return s.slice((bestCenter-maxLen)/2, (bestCenter+maxLen)/2);
+// };
+// var longestPalindrome = function(s) {
+//     if (s.length <= 1) return s
+//     let window = s.length
+//     let windowStart = 0
+//     let windowEnd = window - 1
+    
+//     while (window>0) {
+//         let currentSubString = s.slice(windowStart, windowEnd + 1)
+//         let reverse = currentSubString.split('').reverse().join('')
+//         if (currentSubString === reverse) {
+//             return currentSubString
+//         }
+//         if (windowEnd === s.length -1) {
+//             window -= 1
+//             windowStart = 0
+//             windowEnd = window -1
+//         } else {
+//             windowEnd++
+//             windowStart++
+//         }
+//     }
+//     return ""
+// };
+
+
+// class Solution {
+//     public String longestPalindrome(String s) {
+//         String ans = "";
+//         for(double center = 0; center <= (double) s.length()-1; center+= 0.5){
+//             int l = (int) Math.floor(center+1); 
+//             int r = (int) Math.ceil(center-1); 
+//             while(l > 0 && 
+//                   r < s.length() -1 &&
+//                   s.charAt(l-1) == s.charAt(r+1)){
+//                 l--; r++;
+//             }
+//             if(r-l+1 > ans.length()){
+//             ans = s.substring(l, r+1);
+//             }
+            
+//         }
+//         return ans;
+//     }
+// }
+        
+//         for (int i = window; i >= 1; window--) {
+//             for (int j = 0; j < s.length(); j++) {
+                                
+//                 if (j + window >= s.length()) {
+//                     break;
+//                 }
+                
+                
+//                 if (isPolindrom(word, j, j + window)) {
+//                     return s.substring(j, j + window  + 1);
+//                 }
+//             }
+//         }
+//         return s.substring(0, 1);
+//     }
+    
