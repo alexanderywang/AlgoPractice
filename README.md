@@ -8,4 +8,5 @@
 |9|[ Palindrome Number](https://leetcode.com/problems/palindrome-number/)|[JavaScript](./solutions/9.%20Palindrome%20NumberJavaScript)|208 ms|
 |15|[ 3Sum](https://leetcode.com/problems/3sum/)|[JavaScript](./solutions/15.%203SumJavaScript)|300 ms|
 |16|[ 3Sum Closest](https://leetcode.com/problems/3sum-closest/)|[JavaScript](./solutions/16.%203Sum%20ClosestJavaScript)|64 ms|
+|17|[ Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|[JavaScript](./solutions/17.%20Letter%20Combinations%20of%20a%20Phone%20NumberJavaScript)|64 ms|
 |1480|[ Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/)|[JavaScript](./solutions/1480.%20Running%20Sum%20of%201d%20ArrayJavaScript)|104 ms|
