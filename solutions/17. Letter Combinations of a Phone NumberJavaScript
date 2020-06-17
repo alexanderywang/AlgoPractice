@@ -1,0 +1,33 @@
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+
+// disguised as a bfs
+// for every number, take every possible letter and recursively call 
+// returning list of strings
+
+const letterCombos = (result, digits,currentCombo, index, hash) => {
+    //base case => correct combo
+    if(index === digits.length) {
+        result.push(currentCombo)
+        return
+    }
+    let letters = hash[digits.charAt(index)]
+    for (let i = 0; i < letters.length; i++){
+        letterCombos(result, digits, currentCombo + letters.charAt(i), index+1, hash)
+    }
+    
+}
+var letterCombinations = function(digits) {
+    let result = []
+    if (digits === null || digits.length === 0) {
+        return result
+    }
+    let hash = { 0: 0, 1: 1, 2:'abc',3:'def',4:'ghi',5:'jkl',6:'mno',7:'pqrs',8:'tuv',9:'wxyz'}
+    
+    letterCombos(result, digits, "", 0, hash)
+    
+    return result
+};
+
