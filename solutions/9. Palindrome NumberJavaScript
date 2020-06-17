@@ -1,0 +1,20 @@
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+
+//reverse a number w/o using string
+var isPalindrome = function(x) {
+    if (x < 0) return false
+    if (x< 10) return true
+    if (x % 10 === 0) return false
+    let reversed = 0
+    
+    while (reversed < x){
+        reversed *= 10
+        reversed += x % 10
+        x = Math.floor(x/10)
+    }
+    return reversed === x || Math.floor(reversed/10) === x
+};
+    
