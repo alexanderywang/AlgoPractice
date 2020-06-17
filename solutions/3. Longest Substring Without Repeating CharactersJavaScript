@@ -1,0 +1,40 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+// var lengthOfLongestSubstring = function(s) {
+//     let longest = 0
+//     let seen = {}
+//     let start = 0
+//     for (let i = 0; i < s.length; i++){
+//         let char = s[i]
+//         if (seen[char]){
+//             start = Math.max(start, seen[char])
+//         }
+//         // index - beginning of substring + 1 includes current in count
+//         longest = Math.max(longest, i - start + 1)
+        
+//         // store index of next char so no double counting
+//         seen[char] = i+1
+//     }
+//     return longest
+// }
+//sliding window, 2 ptrs, ptr2 will expand window
+var lengthOfLongestSubstring = function(s) {
+    let ptr1 = 0
+    let ptr2 = 0
+    let max = 0
+    let hash = {}
+    
+    while (ptr2 < s.length) {
+        if (!hash.hasOwnProperty(s[ptr2])) {
+            hash[s[ptr2]] = true
+            ptr2++   
+            max = Math.max(max, Object.keys(hash).length)
+        } else {
+            delete hash[s[ptr1]]
+            ptr1++
+        }
+    }
+    return max
+};
