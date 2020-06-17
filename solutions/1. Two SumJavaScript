@@ -1,0 +1,30 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+
+var twoSum = function(nums, target) {
+    let obj = {}
+    for(let i = 0; i < nums.length; i++) {
+        const e = nums[i]
+        if(obj.hasOwnProperty(target - e)) {
+            return [obj[target - e], i]
+        }
+        else {
+            obj[e] = i
+        }
+    }
+//     copy = nums.slice()
+//     copy.sort((a,b) => a-b)
+//     let left = 0
+//     let right = nums.length-1
+    
+//     while (left < right){
+//         let sum = copy[left]+copy[right]
+//         if (sum === target) return [nums.indexOf(copy[left]), nums.indexOf(copy[right])]
+//         else if (sum < target) left++
+//         else if (sum > target) right--
+//     }
+//     return []
+};
