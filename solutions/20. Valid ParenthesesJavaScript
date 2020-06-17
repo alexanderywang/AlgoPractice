@@ -1,0 +1,22 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    let hash = {'(':')','{':'}','[':']'}
+    let stack = []
+    for (let i = 0; i < s.length; i++) {
+        let el = s[i]
+        if (hash[el]) {
+            stack.push(el) 
+        }
+        else {
+            let top = stack.pop()
+            if (el !== hash[top]) return false
+        }
+    }
+    return (stack.length === 0)
+};
+
+// '(())'
+// ['(','(']
