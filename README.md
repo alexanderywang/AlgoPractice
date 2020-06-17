@@ -4,6 +4,7 @@
 |---| ----- | -------- | ------- |
 |1|[ Two Sum](https://leetcode.com/problems/two-sum/)|[JavaScript](./solutions/1.%20Two%20SumJavaScript)|56 ms|
 |2|[ Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|[JavaScript](./solutions/2.%20Add%20Two%20NumbersJavaScript)|152 ms|
+|5|[ Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)|[JavaScript](./solutions/5.%20Longest%20Palindromic%20SubstringJavaScript)|616 ms|
 |7|[ Reverse Integer](https://leetcode.com/problems/reverse-integer/)|[JavaScript](./solutions/7.%20Reverse%20IntegerJavaScript)|132 ms|
 |9|[ Palindrome Number](https://leetcode.com/problems/palindrome-number/)|[JavaScript](./solutions/9.%20Palindrome%20NumberJavaScript)|208 ms|
 |15|[ 3Sum](https://leetcode.com/problems/3sum/)|[JavaScript](./solutions/15.%203SumJavaScript)|300 ms|
