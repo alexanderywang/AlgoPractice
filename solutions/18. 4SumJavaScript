@@ -1,0 +1,64 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[][]}
+ */
+// 4pointers, i, j, left, right
+var fourSum = function(nums, target) {
+    let result = []
+    if (nums.length < 4 || nums === null) return result
+    nums.sort((a,b) => a-b)
+    
+    let max = nums[nums.length-1]
+    for (let i = 0; i < nums.length-3; i++) {
+        // ifs are optional but speed up the checking
+        if (i > 0 && nums[i] === nums[i-1]) {
+            continue
+        }
+        if (nums[i] + 3 * max < target) {
+            continue // nums[i] is too small
+        }
+        if (nums[i] * 4 > target) {
+            break //nums[i] too big
+        }
+        for (let j = i+1; j < nums.length-2; j++){
+            // if is optional but speeds up checking
+            if (j > i + 1 && nums[j] === nums[j-1]) {
+                continue
+            }
+            let left = j + 1
+            let right = nums.length - 1
+            // now 2 sum
+            while (left < right) {
+                let sum = nums[i] + nums[j] + nums[left] + nums[right]
+                if (sum === target) {
+                    let quad = [nums[i], nums[j], nums[left], nums[right]]
+                    result.push(quad)
+                    // check duplicates for right and left
+                    let leftVal = nums[left]
+                    while (left < nums.length && nums[left] === leftVal) {
+                        left++
+                    }
+                    let rightVal = nums[right]
+                    while (left < right && nums[right] === rightVal) {
+                        right--
+                    }
+                }
+                else if (sum < target) { // make it bigger, increment left
+                    left++
+                } else {
+                    right--
+                }
+            }
+            // check duplicates j
+            while ( j + 1 < nums.length && nums[ j + 1] === nums[j]){
+                   j++
+            }
+        }
+        // check duplicates 
+        while (i + 1 < nums.length && nums[i+1] === nums[i]) {
+            i++
+        }
+    }
+    return result     
+}
